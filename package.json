@@ -20,7 +20,8 @@
     "Layout",
     "React",
     "Row",
-    "Col"
+    "Col",
+    "react-component"
   ],
   "author": "Kevin Clarens",
   "license": "MIT",
