@@ -1,6 +1,6 @@
 {
   "name": "greact",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A grid system for React",
   "main": "./lib/greact.js",
   "scripts": {
