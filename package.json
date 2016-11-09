@@ -2,7 +2,7 @@
   "name": "greact",
   "version": "1.0.1",
   "description": "A grid system for React",
-  "main": "index.js",
+  "main": "./lib/greact.js",
   "scripts": {
     "build": "npm run clean && npm run build:babel && npm run build:webpack",
     "build:babel": "babel -d lib/ src/",
@@ -46,7 +46,8 @@
     "webpack": "^1.12.14"
   },
   "peerDependencies": {
-    "react": ">=0.15.0"
+    "react": ">=0.15.0",
+    "react-responsive": ">=1.2.1"
   },
   "dependencies": {
     "webpack": "^1.13.3"
