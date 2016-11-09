@@ -1,9 +1,10 @@
 {
   "name": "greact",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A grid system for React",
   "main": "./lib/greact.js",
   "scripts": {
+    "prepublish": "npm run build",
     "build": "npm run clean && npm run build:babel && npm run build:webpack",
     "build:babel": "babel -d lib/ src/",
     "build:demo": "cross-env webpack -p --config webpack.config.demo.js",
@@ -41,15 +42,13 @@
     "express": "^4.13.4",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
-    "react-responsive": "^1.2.1",
     "rimraf": "^2.5.2",
-    "webpack": "^1.12.14"
+    "webpack": "^1.13.3"
   },
   "peerDependencies": {
-    "react": ">=0.15.0",
-    "react-responsive": ">=1.2.1"
+    "react": ">=0.15.0"
   },
   "dependencies": {
-    "webpack": "^1.13.3"
+    "react-responsive": "^1.2.1"
   }
 }
