@@ -7,7 +7,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Row cols={12}>
+        <Row>
           <Col xs={12} sm={4} md={2} lg={1}>{'1'}</Col>
           <Col xs={12} sm={4} md={2} lg={1}>{'2'}</Col>
           <Col xs={12} sm={4} md={2} lg={1}>{'3'}</Col>
