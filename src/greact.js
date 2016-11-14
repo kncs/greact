@@ -1,25 +1,7 @@
 import React from 'react'
 import MediaQuery from 'react-responsive';
-
-let styles = {
-  row :{
-    display : 'flex',
-    flexFlow: 'row wrap',
-    width : '100%'
-  },
-  col : {
-    display : 'inherit'
-  }
-}
-
-let defaults = {
-  cols : 12,
-  queries : {
-    xs : 544,
-    sm : 768,
-    md : 992
-  }
-}
+import styles from './styles'
+import defaults from './defaults'
 
 export function Row(props) {
 
