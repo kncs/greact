@@ -12,6 +12,15 @@ let styles = {
   }
 }
 
+let defaults = {
+  cols : 12,
+  queries : {
+    xs : 544,
+    sm : 768,
+    md : 992
+  }
+}
+
 export function Row(props) {
 
   let renderMediaQuerie = function(mediaQuery){
@@ -21,7 +30,7 @@ export function Row(props) {
           {
             React.Children.map(props.children, child => {
               return React.cloneElement(child, {
-                cols: props.cols,
+                cols: props.cols || defaults.cols,
                 property : mediaQuery.property
               })
             })
@@ -31,11 +40,12 @@ export function Row(props) {
     )
   }
 
+  let queriesSize = Object.assign(defaults.queries, props.queries)
   let mediaQueries = [
-    {property: 'xs', query : '(max-width: 544px)'},
-    {property: 'sm', query : '(min-width: 545px) and (max-width: 768px)'},
-    {property: 'md', query : '(min-width: 769px) and (max-width: 992px)'},
-    {property: 'lg', query : '(min-width: 992px)'}
+    {property: 'xs', query : `(max-width: ${queriesSize.xs}px)`},
+    {property: 'sm', query : `(min-width: ${queriesSize.xs+1}px) and (max-width: ${queriesSize.sm}px)`},
+    {property: 'md', query : `(min-width: ${queriesSize.sm+1}px) and (max-width: ${queriesSize.md}px)`},
+    {property: 'lg', query : `(min-width: ${queriesSize.md+1}px)`}
   ]
 
   return (
@@ -50,56 +60,34 @@ export function Row(props) {
 }
 
 export function Col(props) {
-
-  let getExtraSmallDeviceColSize = function() {
-    return props.xs || props.sm || props.md || props.lg || 0;
-  }
-
-  let getSmallDeviceColSize = function() {
-    return props.sm || props.xs || props.md || props.lg || 0;
-  }
-
-  let getMediumDeviceColSize = function() {
-    return props.md || props.sm || props.xs || props.lg || 0;
-  }
-
-  let getLargeDeviceColSize = function() {
-    return props.lg || props.md || props.sm || props.xs || 0;
-  }
-
   let renderChildren = function(size) {
     let customStyle = Object.assign(styles.col, {
       flexBasis : `${(size/props.cols)*100}%`
     })
-    return (
-      <div style={customStyle}>
-        {props.children}
-      </div>
-    )
+
+    if(size) {
+      return (
+        <div style={customStyle}>
+          {props.children}
+        </div>
+      )
+    }
   }
 
   let size = 0;
   switch(props.property) {
     case 'xs':
-      size = getExtraSmallDeviceColSize();
+      size = props.xs || props.sm || props.md || props.lg || 0;
       break;
-
     case 'sm':
-      size = getSmallDeviceColSize();
+      size = props.sm || props.xs || props.md || props.lg || 0;
       break;
-
     case 'md':
-      size = getMediumDeviceColSize();
+      size = props.md || props.sm || props.xs || props.lg || 0;
       break;
-
     case 'lg':
-      size = getLargeDeviceColSize();
+      size = props.lg || props.md || props.sm || props.xs || 0;
       break;
   }
-
-  if(size) {
-    return renderChildren(size)
-  } else {
-    return null;
-  }
+  return renderChildren(size)
 }
