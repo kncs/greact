@@ -1,7 +1,7 @@
 import React from 'react'
 import MediaQuery from 'react-responsive';
-import styles from './styles'
-import defaults from './defaults'
+import {styles} from './styles'
+import {options} from './options'
 
 export function Row(props) {
 
@@ -12,7 +12,7 @@ export function Row(props) {
           {
             React.Children.map(props.children, child => {
               return React.cloneElement(child, {
-                cols: props.cols || defaults.cols,
+                cols: props.cols || options.cols,
                 property : mediaQuery.property
               })
             })
@@ -22,7 +22,7 @@ export function Row(props) {
     )
   }
 
-  let queriesSize = Object.assign(defaults.queries, props.queries)
+  let queriesSize = Object.assign(options.queries, props.queries)
   let mediaQueries = [
     {property: 'xs', query : `(max-width: ${queriesSize.xs}px)`},
     {property: 'sm', query : `(min-width: ${queriesSize.xs+1}px) and (max-width: ${queriesSize.sm}px)`},

@@ -1,4 +1,4 @@
-export const defaults = {
+export const options = {
   cols : 12,
   queries : {
     xs : 544,
