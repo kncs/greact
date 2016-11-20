@@ -8,7 +8,7 @@ export function Row(props) {
   let renderMediaQuerie = function(mediaQuery){
     return (
       <MediaQuery key={mediaQuery.property} query={mediaQuery.query}>
-        <div style={styles.row}>
+        <div className="greact-row" style={styles.row}>
           {
             React.Children.map(props.children, child => {
               return React.cloneElement(child, {
@@ -49,7 +49,7 @@ export function Col(props) {
 
     if(size) {
       return (
-        <div style={customStyle}>
+        <div className="greact-col" style={customStyle}>
           {props.children}
         </div>
       )
