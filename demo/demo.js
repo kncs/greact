@@ -5,28 +5,39 @@ import {Row, Col} from '../src/greact';
 
 class App extends React.Component {
   render() {
+    let code = "var data = 1;";
     return (
       <div>
+        <h1>Greact, the easiest way to create your layout</h1>
+        <p>Without any suprise greact will allow you to layout your pages through a series of rows and columns. A row can be defined as a horizontal groups of columns and content should be placed within columns (only columns may be immediate children of rows).</p>
+        <h2>Example: Stacked-to-horizontal</h2>
+
         <Row>
-          <Col xs={12} sm={4} md={2} lg={1}>{'1'}</Col>
-          <Col xs={12} sm={4} md={2} lg={1}>{'2'}</Col>
-          <Col xs={12} sm={4} md={2} lg={1}>{'3'}</Col>
-          <Col xs={12} sm={4} md={2} lg={1}>{'4'}</Col>
-          <Col xs={12} sm={4} md={2} lg={1}>{'5'}</Col>
-          <Col xs={12} sm={4} md={2} lg={1}>{'6'}</Col>
-          <Col xs={12} sm={4} md={2} lg={1}>{'7'}</Col>
-          <Col xs={12} sm={4} md={2} lg={1}>{'8'}</Col>
-          <Col xs={12} sm={4} md={2} lg={1}>{'9'}</Col>
-          <Col xs={12} sm={4} md={2} lg={1}>{'10'}</Col>
-          <Col xs={12} sm={4} md={2} lg={1}>{'11'}</Col>
-          <Col xs={12} sm={4} md={2} lg={1}>{'12'}</Col>
+          <Col md={1}>md-1</Col>
+          <Col md={1}>md-1</Col>
+          <Col md={1}>md-1</Col>
+          <Col md={1}>md-1</Col>
+          <Col md={1}>md-1</Col>
+          <Col md={1}>md-1</Col>
+          <Col md={1}>md-1</Col>
+          <Col md={1}>md-1</Col>
+          <Col md={1}>md-1</Col>
+          <Col md={1}>md-1</Col>
+          <Col md={1}>md-1</Col>
+          <Col md={1}>md-1</Col>
         </Row>
-        <Row cols={5}>
-          <Col xs={5} md={1}>{'1'}</Col>
-          <Col xs={5} md={1}>{'2'}</Col>
-          <Col xs={5} md={1}>{'3'}</Col>
-          <Col xs={5} md={1}>{'4'}</Col>
-          <Col xs={5} md={1}>{'5'}</Col>
+        <Row>
+          <Col md={8}>md-8</Col>
+          <Col md={4}>md-4</Col>
+        </Row>
+        <Row>
+          <Col md={4}>md-4</Col>
+          <Col md={4}>md-4</Col>
+          <Col md={4}>md-4</Col>
+        </Row>
+        <Row>
+          <Col md={6}>md-6</Col>
+          <Col md={6}>md-6</Col>
         </Row>
       </div>
     );
