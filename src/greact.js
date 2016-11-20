@@ -59,16 +59,16 @@ export function Col(props) {
   let size = 0;
   switch(props.property) {
     case 'xs':
-      size = props.xs || props.sm || props.md || props.lg || 0;
+      size = props.xs || 12;
       break;
     case 'sm':
-      size = props.sm || props.xs || props.md || props.lg || 0;
+      size = props.sm || props.xs || 12;
       break;
     case 'md':
-      size = props.md || props.sm || props.xs || props.lg || 0;
+      size = props.md || props.sm || props.xs || 12;
       break;
     case 'lg':
-      size = props.lg || props.md || props.sm || props.xs || 0;
+      size = props.lg || props.md || props.sm || props.xs || 12;
       break;
   }
   return renderChildren(size)
