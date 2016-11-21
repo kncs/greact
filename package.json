@@ -1,6 +1,6 @@
 {
   "name": "greact",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "A grid system for React",
   "main": "./umd/greact.js",
   "scripts": {
