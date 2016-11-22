@@ -42,9 +42,10 @@ export function Row(props) {
 }
 
 export function Col(props) {
-  let renderChildren = function(size) {
+  let renderChildren = function(size, offset) {
     let customStyle = Object.assign(styles.col, {
-      flexBasis : `${(size/props.cols)*100}%`
+      flexBasis : `${(size/props.cols)*100}%`,
+      marginLeft : `${(offset/props.cols)*100}%`
     })
 
     if(size) {
@@ -57,19 +58,35 @@ export function Col(props) {
   }
 
   let size = 0;
+  let offset = 0;
   switch(props.property) {
     case 'xs':
-      size = props.xs || 12;
+      size = props.xs || 12
+      if(props.offset) {
+        offset = props.offset.xs;
+      }
       break;
+
     case 'sm':
-      size = props.sm || props.xs || 12;
+      size = props.sm || props.xs || 12
+      if(props.offset) {
+        offset = props.offset.sm || props.offset.xs;
+      }
       break;
+
     case 'md':
-      size = props.md || props.sm || props.xs || 12;
+      size = props.md || props.sm || props.xs || 12
+      if(props.offset) {
+        offset = props.offset.md || props.offset.sm || props.offset.xs;
+      }
       break;
+
     case 'lg':
-      size = props.lg || props.md || props.sm || props.xs || 12;
+      size = props.lg || props.md || props.sm || props.xs || 12
+      if(props.offset) {
+        offset = props.offset.lg || props.offset.md || props.offset.sm || props.offset.xs;
+      }
       break;
   }
-  return renderChildren(size)
+  return renderChildren(size, offset)
 }
