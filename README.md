@@ -101,6 +101,7 @@ Let's have a look on options:
 | sm      | space used by the column for small devices       | 0         |
 | md      | space used by the column for medium devices      | 0         |
 | lg      | space used by the column for large devices       | 0         |
+| offset  | object containing offset for all devices size    | {xs:0, sm:0, md:0, lg:0 }         |
 
 Feel free to combine all these options and play with the grid, that's super easy and this is why greact exists:
 
