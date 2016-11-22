@@ -6,6 +6,7 @@ import {Row, Col} from '../src/greact';
 
 import {default as stackedToHorizontal} from '!raw-loader!./examples/stacked-to-horizontal.js';
 import {default as changingColumnsNumber} from '!raw-loader!./examples/changing-columns-number.js';
+import {default as offsettingColumns} from '!raw-loader!./examples/offsetting-columns.js';
 
 class App extends React.Component {
 
@@ -82,6 +83,25 @@ class App extends React.Component {
         <pre>
           <PrismCode className="language-javascript">
             {changingColumnsNumber}
+          </PrismCode>
+        </pre>
+
+        <h2>Example: Offsetting columns</h2>
+        <Row>
+          <Col md={4}>{'md-4'}</Col>
+          <Col md={4} offset={{md:4}}>{'offset-md-4 md-4'}</Col>
+        </Row>
+        <Row>
+          <Col md={3} offset={{md:3}}>{'offset-md-3 md-3'}</Col>
+          <Col md={3} offset={{md:3}}>{'offset-md-3 md-3'}</Col>
+        </Row>
+        <Row>
+          <Col md={6} offset={{md:3}}>{'offset-md-3 md-6'}</Col>
+        </Row>
+        <h3>Code</h3>
+        <pre>
+          <PrismCode className="language-javascript">
+            {offsettingColumns}
           </PrismCode>
         </pre>
       </div>
